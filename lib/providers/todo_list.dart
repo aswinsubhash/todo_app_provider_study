@@ -1,3 +1,5 @@
+import 'dart:developer';
+
 import 'package:equatable/equatable.dart';
 import 'package:flutter/material.dart';
 import 'package:todo_app_provider/models/todo_model.dart';
@@ -99,6 +101,7 @@ class TodoList with ChangeNotifier {
     final newTodos = _state.todos.where((Todo t) => t.id != todo.id).toList();
 
     _state = _state.copyWith(todos: newTodos);
+    log(_state.toString());
     notifyListeners();
   }
 }

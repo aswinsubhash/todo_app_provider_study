@@ -1,3 +1,5 @@
+import 'dart:developer';
+
 import 'package:equatable/equatable.dart';
 import 'package:flutter/material.dart';
 import 'package:todo_app_provider/models/todo_model.dart';
@@ -42,12 +44,14 @@ class ActiveTodoCount with ChangeNotifier {
   /// the length fo the ones whose completed value of the todo being scanned is false, that is,
   /// the active ones, is stored in the newActiveTodoCount variable.
   void update(TodoList todoList) {
+    log(todoList.state.toString());
     final int newActiveTodoCount = todoList.state.todos
         .where((Todo todo) => !todo.completed)
         .toList()
         .length;
 
     _state = _state.copyWith(activeTodoCount: newActiveTodoCount);
+    log(state.toString());
     notifyListeners();
   }
 }
