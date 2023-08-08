@@ -5,7 +5,6 @@ import 'package:todo_app_provider/providers/filtered_todos.dart';
 import 'package:todo_app_provider/providers/todo_filter.dart';
 import 'package:todo_app_provider/providers/todo_list.dart';
 import 'package:todo_app_provider/providers/todo_search.dart';
-
 import 'pages/todos_page.dart';
 
 void main() {
