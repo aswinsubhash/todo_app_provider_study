@@ -35,7 +35,7 @@ class TodoFilter  with ChangeNotifier{
   TodoFilterState _state = TodoFilterState.initial();
 
   /// Created a getter so that it can be accessed from outside.
-  /// It is a king of safe guard for the state.
+  /// It is a kind of safe guard for the state.
   TodoFilterState get state => _state;
 
   /// This changeFilter function is triggered whenever the All, Active or  completed tabs are clicked.
