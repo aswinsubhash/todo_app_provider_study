@@ -1,3 +1,4 @@
+// ignore_for_file: public_member_api_docs, sort_constructors_first
 import 'package:equatable/equatable.dart';
 import 'package:flutter/material.dart';
 
@@ -32,7 +33,14 @@ class FilteredTodosState extends Equatable {
 }
 
 class FilteredTodos with ChangeNotifier {
-  FilteredTodosState _state = FilteredTodosState.initial();
+  // FilteredTodosState _state = FilteredTodosState.initial();
+  late FilteredTodosState _state;
+  final List<Todo> initialFilteredTodos;
+  FilteredTodos({
+    required this.initialFilteredTodos,
+  }) {
+    _state = FilteredTodosState(filteredTodos: initialFilteredTodos);
+  }
   FilteredTodosState get state => _state;
 
   /// About todo list filter

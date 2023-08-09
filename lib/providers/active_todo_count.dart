@@ -1,7 +1,6 @@
-import 'dart:developer';
-
 import 'package:equatable/equatable.dart';
 import 'package:flutter/material.dart';
+
 import 'package:todo_app_provider/models/todo_model.dart';
 import 'package:todo_app_provider/providers/todo_list.dart';
 
@@ -31,7 +30,14 @@ class ActiveTodoCountState extends Equatable {
 }
 
 class ActiveTodoCount with ChangeNotifier {
-  ActiveTodoCountState _state = ActiveTodoCountState.initial();
+  // ActiveTodoCountState _state = ActiveTodoCountState.initial();
+  late ActiveTodoCountState _state;
+  final int initialActiveTodoCount;
+  ActiveTodoCount({
+    required this.initialActiveTodoCount,
+  }) {
+    _state = ActiveTodoCountState(activeTodoCount: initialActiveTodoCount);
+  }
   ActiveTodoCountState get state => _state;
 
   /// This update function is called multiple times.
@@ -44,14 +50,13 @@ class ActiveTodoCount with ChangeNotifier {
   /// the length fo the ones whose completed value of the todo being scanned is false, that is,
   /// the active ones, is stored in the newActiveTodoCount variable.
   void update(TodoList todoList) {
-    log(todoList.state.toString());
     final int newActiveTodoCount = todoList.state.todos
         .where((Todo todo) => !todo.completed)
         .toList()
         .length;
 
     _state = _state.copyWith(activeTodoCount: newActiveTodoCount);
-    log(state.toString());
+
     notifyListeners();
   }
 }
