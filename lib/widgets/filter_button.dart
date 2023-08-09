@@ -17,7 +17,7 @@ Widget filterButton(BuildContext context, Filter filter) {
               : 'Completed',
       style: TextStyle(
         fontSize: 18.0,
-        color: textColor(context, filter),
+        color: AppColor().textColor(context, filter),
       ),
     ),
   );

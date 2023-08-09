@@ -14,21 +14,21 @@ class TodosPage extends StatefulWidget {
 class _TodosPageState extends State<TodosPage> {
   @override
   Widget build(BuildContext context) {
-    return const SafeArea(
+    return SafeArea(
       child: Scaffold(
         body: SingleChildScrollView(
           child: Padding(
-            padding: EdgeInsets.symmetric(
+            padding: const EdgeInsets.symmetric(
               horizontal: 20.0,
               vertical: 40.0,
             ),
             child: Column(
               children: [
-                TodoHeader(),
-                CreateTodo(),
-                SizedBox(height: 20.0),
+                const TodoHeader(),
+                const CreateTodo(),
+                const SizedBox(height: 20.0),
                 SearchAndFilterTodo(),
-                ShowTodos()
+                const ShowTodos()
               ],
             ),
           ),
@@ -36,5 +36,4 @@ class _TodosPageState extends State<TodosPage> {
       ),
     );
   }
-
 }
