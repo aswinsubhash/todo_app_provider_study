@@ -10,7 +10,7 @@ class TodoFilterState extends Equatable {
   });
 
   /// This means that we do not filter in the first place.
-  /// If you create a factory constructor like this we can quickly find out 
+  /// If you create a factory constructor like this we can quickly find out
   ///  what the initial state is even after a long time after developement.
   factory TodoFilterState.initial() {
     return const TodoFilterState(filter: Filter.all);
@@ -22,6 +22,7 @@ class TodoFilterState extends Equatable {
   @override
   bool get stringify => true;
 
+
   TodoFilterState copyWith({
     Filter? filter,
   }) {
@@ -31,7 +32,7 @@ class TodoFilterState extends Equatable {
   }
 }
 
-class TodoFilter  with ChangeNotifier{
+class TodoFilter with ChangeNotifier {
   TodoFilterState _state = TodoFilterState.initial();
 
   /// Created a getter so that it can be accessed from outside.
@@ -43,11 +44,8 @@ class TodoFilter  with ChangeNotifier{
   /// The copyWith function creates a new value without mutation.
   /// Also, the copyWith funcion can be particularly useful when a class has multiple propertise.
   /// This is only because the changed values need to be passed as an arguement.
-  void changeFilter(Filter newFilter){
+  void changeFilter(Filter newFilter) {
     _state = _state.copyWith(filter: newFilter);
     notifyListeners();
   }
-
 }
-
-
